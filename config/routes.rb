@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'pages/home', to: 'pages#home'
   get '/about', to: 'pages#about'
 
-  resources :posts
+  resources :posts do
+    member do
+      get "delete", to: 'posts#delete' 
+    end
+  end
 
 end

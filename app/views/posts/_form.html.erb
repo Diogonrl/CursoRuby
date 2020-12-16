@@ -1,0 +1,20 @@
+<%= render 'shared/errors', obj: @post %>
+<div class= row>
+    <div class= col-md-16>
+        <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <div class = "form_group col-md-6 offset-md-3 center">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Nome do Post", autofocus: true %>
+            </div>
+            <div class = "form_group col-md-6 offset-md-3 center">
+                    <%= f.label :description %>
+                    <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Descrição do Post", autofocus: true %>
+            </div>
+            <div class = "form_group  center">
+                <%= f.submit class: "btn btn-dark btn-lg", id:"botaoLogin" %>
+        <% end %>
+        <div class= "colormatch center">
+           [[<%= link_to "cancelar", posts_path %>]]
+        </div>
+    </div>
+</div>

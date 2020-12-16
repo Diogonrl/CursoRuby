@@ -11,4 +11,11 @@
             <p>  Created: <%= time_ago_in_words(@post.created_at)%> ago</p>
          </div>
     </p>
+    <div class= "post-actions">
+            <%= link_to "Editar", edit_post_path(@post), class: "btn btn-dark btn-sm" %>
+            <%= link_to "Delete", delete_post_path(@post), data: { confirm: "Are you sure you want to delete?", method: :delete },
+                                                           class: "btn btn-sm btn-danger" %>
+            <%= link_to "Voltar", posts_path, class: "btn btn-dark btn-sm" %>
+    </div>  
+    </div>
 </div>

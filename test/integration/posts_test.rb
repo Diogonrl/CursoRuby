@@ -17,21 +17,24 @@ class PostsTest < ActionDispatch::IntegrationTest
   test "lista de receitas " do
     get posts_path
     assert_template 'posts/index'
-    assert_select "a[href=?]". post_path(@post), text: @post.name
-    assert_select "a[href=?]". post_path(@post), text: @post2.name
+    assert_select "a[href=?]", post_path(@post), text: @post.name
+    assert_select "a[href=?]", post_path(@post), text: @post2.name
   end
 
   test " mostrar posts " do
     get post_path(@post)
-    assert_template 'post/show'
+    assert_template 'posts/show'
     assert_match @post.name, response.body
     assert_match @post.description, response.body
     assert_match @user.name, response.body
+    assert_select "a[href=?]", edit_post_path(@post), text: "Editar"
+    assert_select "a[href=?]", post_path(@post), text: "Deletar"
+    assert_select "a[href=?]", posts_path, text: "retornar a lista"
   end 
 
   test "criar novo post" do
     get new_post_path
-    assert_template 'post/new'
+    assert_template 'posts/new'
     name_of_post = "postpsot"
     description_of_post = "description description description description description description"
     assert_difference "Post.count", 1 do

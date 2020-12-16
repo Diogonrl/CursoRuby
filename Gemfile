@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'jquery-rails'
 gem 'popper_js', '~> 1.14.5'
+
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
