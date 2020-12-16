@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title: @post.name %>
+
+<div class="well col-md-12 col-md-offset-2">
+    <h3><strong>Description:</strong></h3>
+    <%= simple_format(@post.description)  %>
+    <p>
+        <div class= "float-right">
+            <p> Created by: </p>
+            <%= link_to gravatar_for(@post.user), posts_path %>
+            <p> <%= @post.user.name.capitalize %></p>
+            <p>  Created: <%= time_ago_in_words(@post.created_at)%> ago</p>
+         </div>
+    </p>
+</div>
